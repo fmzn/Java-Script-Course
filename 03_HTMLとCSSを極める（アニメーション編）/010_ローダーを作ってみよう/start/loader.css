@@ -1,24 +1,25 @@
-body {
+.three-dot-spinner {
   text-align: center;
 }
 
-.rect {
+.three-dot-spinner div {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 18px;
+  height: 18px;
   background-color: black;
-  -webkit-animation: sk-bouncedelay 1.4s;
-          animation: sk-bouncedelay 1.4s;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
+  border-radius: 50%;
+  -webkit-animation: sk-bouncedelay 1.4s infinite;
+          animation: sk-bouncedelay 1.4s infinite;
 }
 
-.paused {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
+.three-dot-spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s;
+}
+
+.three-dot-spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+          animation-delay: -0.16s;
 }
 
 @-webkit-keyframes sk-bouncedelay {
@@ -26,9 +27,13 @@ body {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  50% {
+  40% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
     -webkit-transform: scale(0);
@@ -41,9 +46,13 @@ body {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  50% {
+  40% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
     -webkit-transform: scale(0);
