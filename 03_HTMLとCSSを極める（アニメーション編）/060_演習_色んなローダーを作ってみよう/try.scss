@@ -1,121 +1,157 @@
 @import "mixin";
 
 .try {
+    .spinner {
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        margin: 100px auto;
+        // transition: all 0.3s;
 
-  .spinner {
-    width: 40px;
-    height: 40px;
-    background-color: black;
-    margin: 100px auto;
-    // transition: all 0.3s;
+        // transform-style: preserve-3d;
+        // perspective: 300px;
 
-    // transform-style: preserve-3d;
-    // perspective: 300px;
+        animation-name: rotate;
+        animation-duration: 1.2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
 
-    animation-name: rotate;
-    animation-duration: 1.2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+        // position: relative;
+        // z-index: 1;
+        // transform-style: preserve-3d;
+        // perspective: 300px;
 
-    // position: relative;
-    // z-index: 1;
-    // transform-style: preserve-3d;
-    // perspective: 300px;
-
-    // transform: rotate;
-     
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-
+        // transform: rotate;
     }
 
-    50% {
-      transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    @keyframes rotate {
+        0% {
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        }
 
-      
-    }
-    100% {
-      transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
-    }
-  }
-
-  .double-spinner {
-    position: relative;
-    margin: 100px auto;
-
-    
-    .bounce1 {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: black;
-    margin: 100px auto;
-    position: relative;
-    opacity: 0.5;
-
-    animation-name: bounce1;
-    animation-duration: 10s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-
+        50% {
+            transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+        }
+        100% {
+            transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+        }
     }
 
-    .bounce2 {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    // transform: translate(-50%,-50%);
-    opacity: 0.5;
+    .double-spinner {
+        position: relative;
+        margin: 100px auto;
 
-    animation-name: bounce2;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+        .bounce1 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: black;
+            margin: 100px auto;
+            position: relative;
+            opacity: 0.5;
 
-    
+            animation-name: bounce1;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+        }
+
+        .bounce2 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            // transform: translate(-50%,-50%);
+            opacity: 0.5;
+
+            animation-name: bounce2;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+        }
+
+        @keyframes bounce1 {
+            0% {
+                transform: scale(1);
+            }
+
+            // 50% {
+            //     transform: scale(0);
+            // }
+            100% {
+                transform: scale(0.5);
+            }
+        }
+
+        @keyframes bounce2 {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            // 50% {
+            //     transform: translate(-50%,-50%) scale(1);
+            // }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     }
 
-    @keyframes bounce1 {
-      0% {
-        transform: scale(0);
-    }
-    40% {
-        transform: scale(1);
-    }
-    80% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(0);
-    }
-    
-  }
+    .rect-spinner {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        & div {
+            display: inline-block;
+            width: 6px;
+            height: 40px;
+            background-color: black;
+            margin: 0 2px;
+            padding: 0;
+            animation: sk-stretchdelay 1.2s ease-in-out infinite;
+        }
 
-  @keyframes bounce2 {
-    0% {
-      transform: translate(-50%,-50%) scale(0);
-  }
-  // 40% {
-  //     transform: scale(0);
-  // }
-  // 80% {
-  //     transform: scale(1);
-  // }
-  100% {
-      transform: translate(-50%,-50%) scale(1);
-  }
-    
-  }
+        & .stick1 {
+            animation-delay: -0.4s;
+        }
 
-}
+        & .stick2 {
+            animation-delay: -0.3s;
+        }
+
+        & .stick3 {
+            animation-delay: -0.2s;
+        }
+
+        & .stick4 {
+            animation-delay: -0.1s;
+        }
+
+        & .stick5 {
+            animation-delay: 0s;
+        }
+
+        @keyframes sk-stretchdelay {
+            0% {
+                transform: scaleY(0);
+            }
+            // 40% {
+            //   transform: scaleY(1);
+            // }
+            // 80% {
+            //   transform: scale(0);
+            // }
+            100% {
+                transform: scaleY(10);
+            }
+        }
+    }
 }
